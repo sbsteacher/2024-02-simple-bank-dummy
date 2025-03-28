@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.simple_bank_dummy.customer.CustomerMapper">
+    <insert id="save">
+        INSERT INTO customer
+           SET customer_id = #{customerId}
+             , name = #{name}
+             , email = #{email}
+    </insert>
+
+    <delete id="clear">
+        TRUNCATE customer
+    </delete>
+
+    <select id="findMaxId">
+        SELECT IFNULL(MAX(customer_id), 0) FROM customer
+    </select>
+</mapper>
