@@ -2,4 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.simple_bank_dummy.card.CardMapper">
 
+    <insert id="save">
+        INSERT INTO card
+           SET card_id = #{cardId}
+             , card_number = #{cardNumber}
+             , expiration_date = #{expirationDate}
+             , customer_id = #{customerId}
+    </insert>
+
+    <select id="findMaxId">
+        SELECT IFNULL( MAX(card_id), 0 ) FROM card
+    </select>
+
 </mapper>
